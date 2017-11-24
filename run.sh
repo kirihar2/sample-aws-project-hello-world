@@ -14,13 +14,6 @@ function ctrl_c() {
         
 }
 
-if [ -f Dockerfile.local]; then
-	echo "local extension already attached to Dockerfile!"
-else
-	mv Dockerfile Dockerfile.local 
-	echo "Attaching local extension from Dockerfile..."
-fi
-echo "Zipping project to file: $output"
-zip -r $output .
 
-done
+echo "Zipping project to file: $output"
+zip -r --exclude=*.git* $output . 
